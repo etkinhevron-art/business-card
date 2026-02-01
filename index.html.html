@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אטקין חברון עו"ד | כרטיס ביקור דיגיטלי</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Heebo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #C9A961;
+            --deep-navy: #1A2332;
+            --soft-navy: #2C3E50;
+            --cream: #F8F6F1;
+            --accent-gold: #D4AF37;
+            --text-light: #ECF0F1;
+            --shadow-strong: rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -150px;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(30px, -30px) rotate(5deg); }
+            50% { transform: translate(0, -50px) rotate(0deg); }
+            75% { transform: translate(-30px, -30px) rotate(-5deg); }
+        }
+
+        .card-container {
+            position: relative;
+            z-index: 1;
+            animation: slideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .business-card {
+            background: linear-gradient(145deg, var(--deep-navy) 0%, var(--soft-navy) 100%);
+            border-radius: 24px;
+            padding: 50px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 
+                0 25px 60px var(--shadow-strong),
+                0 5px 15px rgba(0, 0, 0, 0.2),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+        }
+
+        .business-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--primary-gold) 20%, 
+                var(--accent-gold) 50%, 
+                var(--primary-gold) 80%, 
+                transparent 100%
+            );
+            opacity: 0.8;
+        }
+
+        .decorative-corner {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border: 2px solid rgba(201, 169, 97, 0.15);
+            border-radius: 50%;
+            top: -75px;
+            right: -75px;
+            pointer-events: none;
+        }
+
+        .decorative-corner::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgba(201, 169, 97, 0.1);
+            border-radius: 50%;
+            top: 25px;
+            right: 25px;
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInScale 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .logo-image {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 20px;
+            filter: drop-shadow(0 8px 20px rgba(201, 169, 97, 0.3));
+            animation: logoFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .firm-name {
+            font-family: 'Heebo', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .firm-subtitle {
+            font-size: 16px;
+            color: var(--primary-gold);
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--primary-gold) 50%, 
+                transparent 100%
+            );
+            margin: 35px 0;
+            opacity: 0.6;
+            animation: expandWidth 1s ease-out 0.8s both;
+        }
+
+        @keyframes expandWidth {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        .contact-info {
+            animation: fadeInUp 0.8s ease-out 1s both;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--primary-gold), var(--accent-gold));
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(201, 169, 97, 0.08);
+            border-color: rgba(201, 169, 97, 0.3);
+            transform: translateX(-5px);
+        }
+
+        .contact-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            color: var(--primary-gold);
+            filter: drop-shadow(0 2px 4px rgba(201, 169, 97, 0.4));
+        }
+
+        .contact-label {
+            font-size: 13px;
+            color: var(--primary-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-width: 60px;
+        }
+
+        .contact-value {
+            color: var(--text-light);
+            font-size: 16px;
+            font-weight: 400;
+            direction: ltr;
+            text-align: left;
+            flex: 1;
+        }
+
+        .contact-value a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .contact-value a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: var(--primary-gold);
+        }
+
+        .contact-value a:hover::after {
+            width: 100%;
+        }
+
+        .specialties {
+            margin-top: 35px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(201, 169, 97, 0.2);
+            animation: fadeInUp 0.8s ease-out 1.2s both;
+        }
+
+        .specialties-title {
+            font-size: 14px;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .specialty-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .tag {
+            background: rgba(201, 169, 97, 0.12);
+            color: var(--text-light);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid rgba(201, 169, 97, 0.25);
+            transition: all 0.3s ease;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .tag:hover {
+            background: rgba(201, 169, 97, 0.2);
+            border-color: var(--primary-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+        }
+
+        .tag:hover::before {
+            left: 100%;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 35px;
+            animation: fadeInUp 0.8s ease-out 1.4s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-gold) 100%);
+            color: var(--deep-navy);
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.4);
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--primary-gold) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(201, 169, 97, 0.5);
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            animation: fadeInUp 0.8s ease-out 1.6s both;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(201, 169, 97, 0.12);
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-gold));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 50%;
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+            color: var(--primary-gold);
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
+            border-color: var(--primary-gold);
+        }
+
+        .social-link:hover::before {
+            opacity: 1;
+        }
+
+        .social-link:hover svg {
+            color: var(--deep-navy);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-phone {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-gold) 100%);
+            color: var(--deep-navy);
+            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.4);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #1EBE57 100%);
+            color: white;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .btn-phone::before {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--primary-gold) 100%);
+        }
+
+        .btn-whatsapp::before {
+            background: linear-gradient(135deg, #1EBE57 0%, #25D366 100%);
+        }
+
+        .action-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .action-btn svg {
+            position: relative;
+            z-index: 1;
+            width: 20px;
+            height: 20px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-phone:hover {
+            box-shadow: 0 12px 30px rgba(201, 169, 97, 0.5);
+        }
+
+        .btn-whatsapp:hover {
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+        }
+
+        .action-btn:hover::before {
+            opacity: 1;
+        }
+
+        .action-btn:active {
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 640px) {
+            .business-card {
+                padding: 35px 25px;
+            }
+
+            .firm-name {
+                font-size: 28px;
+            }
+
+            .firm-subtitle {
+                font-size: 13px;
+                letter-spacing: 2px;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                padding: 12px 16px;
+            }
+
+            .contact-label {
+                min-width: auto;
+            }
+
+            .contact-value {
+                text-align: right;
+                direction: rtl;
+            }
+
+            .specialty-tags {
+                gap: 8px;
+            }
+
+            .tag {
+                font-size: 12px;
+                padding: 6px 14px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .action-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .logo-image {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="business-card">
+            <div class="decorative-corner"></div>
+            
+            <div class="logo-section">
+                <img src="https://www.law-eh.co.il/wp-content/uploads/2022/11/small-logo-transparent.png" alt="אטקין חברון לוגו" class="logo-image">
+                <h1 class="firm-name">אטקין חברון עו"ד</h1>
+                <p class="firm-subtitle">משרד עורכי דין</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <span class="contact-label">טלפון</span>
+                    <span class="contact-value"><a href="tel:052-8284313">052-8284313</a> | <a href="tel:052-7737194">052-7737194</a></span>
+                </div>
+
+                <div class="contact-item">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span class="contact-label">מייל</span>
+                    <span class="contact-value"><a href="mailto:etkinhevron@gmail.com">etkinhevron@gmail.com</a></span>
+                </div>
+
+                <div class="contact-item">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span class="contact-label">כתובת</span>
+                    <span class="contact-value">יגאל אלון 94, תל אביב-יפו</span>
+                </div>
+
+                <div class="contact-item">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    <span class="contact-label">אתר</span>
+                    <span class="contact-value"><a href="https://www.law-eh.co.il" target="_blank">www.law-eh.co.il</a></span>
+                </div>
+            </div>
+
+            <div class="specialties">
+                <p class="specialties-title">תחומי התמחות</p>
+                <div class="specialty-tags">
+                    <span class="tag">משפט צבאי</span>
+                    <span class="tag">משפט פלילי</span>
+                    <span class="tag">ייצוג חיילים</span>
+                    <span class="tag">בית דין צבאי</span>
+                    <span class="tag">דיני צבא ובטחון</span>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <div class="action-buttons">
+                    <a href="tel:052-8284313" class="action-btn btn-phone">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span>התקשרו עכשיו</span>
+                    </a>
+                    <a href="https://wa.me/972528284313" target="_blank" class="action-btn btn-whatsapp">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        <span>שלחו וואטסאפ</span>
+                    </a>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://www.facebook.com/etkinhevron" target="_blank" class="social-link" aria-label="פייסבוק">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/etkinhevron/" target="_blank" class="social-link" aria-label="אינסטגרם">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+ 
